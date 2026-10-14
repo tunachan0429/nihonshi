@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>公共 考査対策</title>
+<style>
+:root{--bg:#f6f4ef;--sf:#fff;--tx:#222;--mt:#777;--ac:#2f5d8a;--ln:#ddd;--ok:#2e7d4f;--ng:#b3402f;--sp:#b7791f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17191c;--sf:#22262b;--tx:#e8e8e8;--mt:#999;--ac:#7fb0e0;--ln:#394049;--ok:#6cc08b;--ng:#e5806f;--sp:#e2b25a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17191c;--sf:#22262b;--tx:#e8e8e8;--mt:#999;--ac:#7fb0e0;--ln:#394049;--ok:#6cc08b;--ng:#e5806f;--sp:#e2b25a;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,"Hiragino Sans","Noto Sans JP",sans-serif}
+main{max-width:720px;margin:0 auto;padding:12px}h1{font-size:18px;margin:4px 0 8px}
+nav{display:flex;gap:6px;margin-bottom:10px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:6px 0;z-index:2}
+button,select,input,textarea{font:inherit;color:var(--tx);background:var(--sf);border:1px solid var(--ln);border-radius:8px;padding:8px 10px}
+button{cursor:pointer}nav button{flex:1;padding:8px 2px;font-size:14px}nav button.on,button.pri{background:var(--ac);color:#fff;border-color:var(--ac)}
+.bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;font-size:14px}.bar select{flex:1;min-width:110px}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:20px;min-height:200px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;font-size:20px;gap:10px}
+.card small{color:var(--mt);font-size:13px}.row{display:flex;gap:8px;margin-top:10px}.row button{flex:1;padding:12px}
+.b{font-size:11px;padding:1px 7px;border-radius:99px;border:1px solid;white-space:nowrap}.b.p{color:var(--ok)}.b.s{color:var(--sp)}
+.it{background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:10px;margin-bottom:8px;font-size:15px}
+.it .a{color:var(--ac);font-weight:600}.it input,.it textarea,.it select{width:100%;margin:3px 0}
+.opt{display:block;width:100%;text-align:left;margin-bottom:8px;padding:12px}.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--sf))}.opt.ng{border-color:var(--ng);background:color-mix(in srgb,var(--ng) 18%,var(--sf))}
+button:disabled{color:var(--tx);opacity:1}.pg{height:10px;background:var(--ln);border-radius:9px;overflow:hidden}.pg i{display:block;height:100%;background:var(--ok)}.mt{color:var(--mt);font-size:13px}
+.fb{padding:10px;border-radius:8px;margin:8px 0;border:1px solid var(--ln);background:var(--sf)}textarea{width:100%;min-height:90px}
+</style></head><body><main>
+<h1>📘 公共 二学期中間考査 対策</h1>
+<nav id="nav"></nav><div id="v"></div>
+<p class="mt">配布プリントの穴埋め(カッコ)部分のみを収録しています。</p>
+</main>
+<script>
+const CATS={r:'ルネサンス・宗教改革',m:'近代哲学',k:'カント・ヘーゲル',j:'正義論',o:'沖縄'};
+const D=[
+['r','ルネサンスの意味(復興以外)','再生','p','背景: 十字軍以来、東方貿易が活発化'],
+['r','人間らしい生き方の典型を求める思想(教会・封建制の束縛から脱し人間性を開放)','人文主義','p',''],
+['r','ルネサンスの先駆者(3人)','ダンテ・ペトラルカ・ボッカチオ','p'],
+['r','ピコ=デラ=ミランドラ: 人間は他の動物と異なり神から何を与えられている?','自由意志','p'],
+['r','マキャベリ: 強力な権力を持つ独裁的君主を望み、何を提唱?','君主論','p','統一国家建設のため'],
+['r','イタリアルネサンスの理想の人間像','万能人','p'],
+['r','万能の天才。モナリザ・最後の晩餐を描いた人物','レオナルド・ダ・ヴィンチ','p'],
+['r','彫刻・絵画・建築の代表的芸術家','ミケランジェロ','p'],
+['r','プリント空欄(か): ルネサンスを代表する芸術家(例)','ラファエロ','s','検索で確認: レオナルド・ダ・ヴィンチ、ミケランジェロと並ぶ盛期ルネサンスの三大巨匠(コトバンク「ラファエッロ」)。プリントでは空欄'],
+['r','宗教改革で授業に出た中心人物(2人)','ルターとカルヴァン','p'],
+['r','ルターが抗議した、ローマ教会の販売物','免罪符/贖宥状','p','95か条の意見書を発表'],
+['r','信仰義認論: 人は何のみによって義とされる?','信仰','p'],
+['r','聖書中心主義: 信仰のよりどころは何のみ?','聖書','p'],
+['r','人が聖書から直接福音を受け取り、誰もが直接神と接する・神の前で全員平等とする考え','万人祭司説','p'],
+['r','あらゆる職業は神から与えられた使命で貴賤の区別はない','職業召命観','p'],
+['r','カルヴァン: 人間の救済は神の意志で予め決定されている','予定説','p'],
+['r','モラリスト: 16〜18世紀初頭フランスで活躍。ポイントは何に生きること?','謙虚','p'],
+['r','モンテーニュ(モラリスト)の代表的な言葉','私は何を知っているか/ク・セ・ジュ','s','検索で確認: 『エセー(随想録)』の著者でフランスのモラリスト。「私は何を知るか?(ク=セ=ジュ)」(historist.jp)。プリントは人名のみ'],
+['r','「人間は考える葦である」の言葉の主(パスカル)。その著書は?','パンセ','s','検索で確認: 遺稿集『パンセ』に「考える葦」などの名句が収録(Weblio)。ただし一字一句この文章がパンセにあるわけではない、との指摘もあり。プリントは人名のみ'],
+['r','「人間は考える葦である」これは誰の言葉?','パスカル','s','検索で確認: Weblio・紀伊國屋書店の書籍紹介などでパスカルの言葉とされる'] ,
+['m','経験を認識の基礎とする立場(個別的・具体的経験)','経験論','p'],
+['m','経験論のフランシス・ベーコン: 主著は?','ノヴム=オルガヌム','p'],
+['m','ベーコンの言葉: 自然について正しい知識を得ることが自然を支配する力となる','知は力なり','p'],
+['m','ベーコンの4つのイドラ','種族・洞窟・市場・劇場','p','(お)種族 (か)市場 は空欄を記入'],
+['m','イドラを排除して観察するだけでは不十分。そのために必要な方法は?','帰納法','p'],
+['m','帰納法の弱点','限られた事例から推理するので過度な一般化の可能性','p'],
+['m','確実な知識は理性によって獲得できるとする立場','合理論','p'],
+['m','合理論の代表者。主著「方法序説」','デカルト','p','スコラ哲学・法律を学んだ後「世間という偉大な書物」から学ぶため欧州を旅した'],
+['m','徹底した懐疑を通じて確実な真理を見つける方法','方法的懐疑','p'],
+['m','デカルトが方法的懐疑の末にたどり着いた哲学の第一原理','我思う、ゆえに我あり','p','練習問題7: 「(我)は考える、ゆえに(我)はある」'],
+['m','デカルトの「良識を正しく用いて真理を発見する規則」','4つの規則','p'],
+['m','デカルトの4つの規則','明証・分析・総合・枚挙','p'],
+['m','一般的原理から論証を積み重ね個々の結論を導く方法','演繹法','p'],
+['m','演繹法の弱点','前提と推理が必然でも、そもそも前提が誤りの可能性','p'],
+['k','カントの3つの問い','何を知ることができるか/何を願うことが許されるか/何をなすべきか','p'],
+['k','「私は何を知ることができるか」に答えたカントの著書','純粋理性批判','p'],
+['k','科学的知識の条件(対象が感覚的経験として出会うもの)とは?','人間が五感でとらえているもの','p'],
+['k','「何を願うことが許されるか」: 神の存在について','証明できないが信じることはできる','p','感性にも悟性にも限界がある'],
+['k','人間は限界を拒み、どんな部分を持つ?(カント)','無限・無制限・無条件にあこがれる部分','p'],
+['k','カントの道徳論: 「無条件に〜せよ」という命令','定言命法','p','対義語: 仮言命法「〜ならば〜せよ」'],
+['k','「〜ならば〜せよ」という条件つきの命令','仮言命法','p'],
+['k','定言命法の考え方(自分の行為が正しいか疑問のとき)','もし皆が自分と同じ行動をとったら社会がどうなるか想像する','p'],
+['k','カントが考える無条件に善いと言えるもの','善意志','p','行為の正しさを表す語句は「道徳法則」(義務に従う)'],
+['k','カントの自由とは?','欲望のままでなく、欲望を律して行動すること','p'],
+['k','ヘーゲルの弁証法の流れ','正(テーゼ)→反(アンチテーゼ)→合(ジンテーゼ)=止揚(アウフヘーベン)','p'],
+['k','ヘーゲルは自由を何の問題としてとらえた?','共同体','p','理性の立てた道徳は自己中心的になる恐れ'],
+['k','自由が実現される共同体やその倫理をヘーゲルは何と名付けた?','人倫','p','自由はまず現実社会の法によって実際に保障されるべき(制度や組織)'],
+['j','功利主義: ベンサム(18〜19世紀)の人間観','快楽(幸福)を求め、苦痛を避ける','p'],
+['j','ベンサムのスローガン','最大多数の最大幸福','p','各人の幸福の総和が最も大きな社会が最も幸福'],
+['j','ベンサムが個人と社会の利益の調和を可能とする原理として唱えたもの','功利性の原理','p','正しい行為=善い結果をもたらす行為(帰結主義)'],
+['j','行為の結果で善悪を判断する立場','帰結主義','p'],
+['j','ミルのベンサム批判と立場','快楽・苦痛の量だけ問題とする→質的功利主義','p','肉体的快楽<精神的快楽'],
+['j','ミル「満足した豚より不満足な(き)、満足した愚か者より不満足な(く)」','人間、ソクラテス','s','検索で確認: ミル『功利主義論』第2章「満足した豚より不満足な人間、満足した愚者より不満足なソクラテス」(scrapbox/nishio、PDCA日記)。練習問題11は空欄'],
+['j','ミルの他者危害原理','他者に危害を及ぼさない限りは個人の自由を認める','p'],
+['j','功利主義の弱点(ロールズの批判)','集団の幸福を個人にどう分配するか考えていない','p'],
+['j','ロールズの「公正としての正義」第一原理','平等な自由の原理','p','基本的自由は全員が平等に分かち合うことが望ましい'],
+['j','ロールズの第二原理','公正な機会均等の原理(+格差の原理)','p','平等な機会のもと、公正な競争の結果に限られる'],
+['j','ロールズの格差の原理(経済的不平等など)','不遇な人の生活を最大限に改善する','p'],
+['j','ロールズの言う基本的な自由(例)','政治的自由(投票権・公職就任権)・言論と集会の自由・良心と思想の自由・人身の自由・個人的財産を持つ権利・恣意的な逮捕からの自由','s','検索で確認: ロールズが第一原理で列挙する基本的諸自由(濱真一郎論文、JIL論文など)。プリントに具体例なし'],
+['j','ノージック: リバタリアニズム(自由至上主義)の主張','最小国家を要求、所得の再分配に反対','p','社会的平等よりも個人の自由の確保・国家権力の制限'],
+['j','マイケル・サンデル: 共同体主義(コミュニタリアニズム)の考え','共同体で共有される価値・共通善を重視する','p','共同体の価値を無視しては正義は定義できない'],
+['j','笛の問題の元ネタと、A・B・Cそれぞれの主張の根拠は?','セン『正義のアイデア』/A=唯一吹ける B=一番貧しい C=自分で作った','s','検索で確認: センの「3人の子と笛」(アン・ボブ・カーラ)が元ネタ。根拠ごとに結論が分かれ正解は一つでない。特定の思想家との対応は未確認のため記載せず'],
+['o','沖縄北部の地区(あ)','ヤンバル(山原)','p'],
+['o','(い)水族館','美ら海','p'],
+['o','(う)基地(西海岸中部)','嘉手納','p'],
+['o','(え)飛行場(世界で一番危険と言われた)','普天間','p'],
+['o','キャンプシュワブがある場所(お)','辺野古','p','名護市'],
+['o','沖縄南部の戦跡地区(か)','南部','p'],
+['o','沖縄の基地問題: 何の移設?','普天間飛行場を名護市辺野古沿岸へ移設','p'],
+['o','1996年の合意と県民投票','沖縄の基地2割縮小に合意/県民投票で基地反対86%','p'],
+['o','2005年の日米合意','普天間の移設先を辺野古で合意','p'],
+['o','2009年: 鳩山民主党代表の発言と結果','「最低でも県外」、政権交代実現','p','その後、自民党政権に戻り再び辺野古へ'],
+['o','日本にある米軍基地のうち沖縄が占める割合','約7割','p'],
+['o','基地の沖縄への影響(3つの観点)','事故・犯罪・経済','p','県民所得倍増(手書き)'],
+['o','沖縄本島北部にいる飛べない鳥','ヤンバルクイナ','s','検索で確認: 沖縄島北部(やんばる)のみに生息する固有種で日本唯一の飛べない鳥(環境省・林野庁)'],
+['o','西表島にだけ生息する動物','イリオモテヤマネコ','s','検索で確認: 西表島にのみ生息(林野庁)']];
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ld=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},sv=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+let cards=ld('kk_c3',null)||D.map((d,i)=>({id:'d'+i,c:d[0],q:d[1],a:d[2],s:d[3],n:d[4]||''})),st=ld('kk_s3',{});
+let tab='card',f={c:'',s:'',un:0},deck=[],di=0,fl=false,qz=null,ed=null,io='';
+const save=()=>{sv('kk_c3',cards);sv('kk_s3',st)},sh=a=>{a=[...a];for(let i=a.length;i>1;){const j=Math.random()*i--|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const bd=s=>`<span class="b ${s}">${s=='p'?'プリント':'補完'}</span>`,pool=()=>cards.filter(x=>(!f.c||x.c==f.c)&&(!f.s||x.s==f.s)&&(!f.un||st[x.id]!==1));
+const nz=s=>s.replace(/[\s　・、。「」『』()（）=＝→]/g,'').toLowerCase(),okA=(u,a)=>{u=nz(u);return u&&a.split('/').some(x=>nz(x)==u)};
+const dsp=a=>a.replace(/\//g,' / '),sg=q=>q.a.split('/')[0].length>12;
+function fbar(){return `<div class="bar"><select onchange="f.c=this.value;rb()"><option value="">全分野</option>${Object.entries(CATS).map(([k,v])=>`<option value="${k}" ${f.c==k?'selected':''}>${v}</option>`).join('')}</select><label><input type="checkbox" ${f.un?'checked':''} onchange="f.un=this.checked?1:0;rb()"> 未習得のみ</label></div>`}
+function rb(){deck=sh(pool());di=0;fl=false;qz=null;draw()}
+function go(t){tab=t;ed=null;if(t=='card'||t=='quiz')rb();else draw()}
+function draw(){$('#nav').innerHTML=[['card','カード'],['quiz','クイズ'],['list','一覧・編集'],['prog','進捗']].map(([k,v])=>`<button class="${tab==k?'on':''}" onclick="go('${k}')">${v}</button>`).join('');$('#v').innerHTML=({card:vCard,quiz:vQuiz,list:vList,prog:vProg})[tab]()}
+function vCard(){let h=fbar();if(!deck.length)return h+'<p>該当するカードがありません。</p>';const c=deck[di];
+h+=`<div class="mt">${di+1} / ${deck.length}${st[c.id]===1?' ✅覚えた':''}</div><div class="card" onclick="fl=!fl;draw()">${fl?`<b style="color:var(--ac)">${esc(dsp(c.a))}</b>${bd(c.s)}${c.n?`<small>${esc(c.n)}</small>`:''}`:`<span>${esc(c.q)}</span><small>タップで答え</small>`}</div>
+<div class="row"><button onclick="mv(-1)">←</button><button onclick="mk(0)">まだ</button><button class="pri" onclick="mk(1)">覚えた</button><button onclick="mv(1)">→</button></div><div class="row"><button onclick="rb()">🔀 シャッフル</button></div>`;return h}
+function mv(d){di=(di+d+deck.length)%deck.length;fl=false;draw()}function mk(v){st[deck[di].id]=v;save();mv(1)}
+function nq(){const q=qz.list[qz.i];if(qz.mode=='c'){let o=sh(cards.filter(x=>x.a!=q.a&&x.c==q.c)).slice(0,3);if(o.length<3)o=o.concat(sh(cards.filter(x=>x.a!=q.a&&!o.includes(x))).slice(0,3-o.length));qz.o=sh([q.a,...[...new Set(o.map(x=>x.a))]])}qz.r=null;qz.ok=null;qz.sg=0}
+function vQuiz(){let h=fbar();if(!qz){return h+`<p class="mt">対象: ${pool().length}問(最大10問出題)。入力式は短い答えのみ文字入力、長い答えは「答えを見て自己採点」になります。</p><div class="row"><button class="pri" onclick="sq('c')">4択で出題</button><button class="pri" onclick="sq('t')">入力で出題</button></div>`}
+if(qz.i>=qz.list.length)return h+`<div class="fb"><b>結果: ${qz.sc} / ${qz.list.length}</b><br>${qz.wr.length?'間違えた問題は「未習得」にしました:<br>'+qz.wr.map(x=>'・'+esc(x.q)).join('<br>'):'全問正解!'}</div><div class="row"><button class="pri" onclick="rb()">もう一度</button></div>`;
+const q=qz.list[qz.i],t=qz.mode=='t',g=t&&sg(q);h+=`<div class="mt">${qz.i+1} / ${qz.list.length}</div><div class="it" style="font-size:18px">${esc(q.q)}</div>`;
+if(!t)h+=qz.o.map((o,i)=>`<button class="opt ${qz.r!=null?(o==q.a?'ok':(qz.r==o?'ng':'')):''}" ${qz.r!=null?'disabled':''} onclick="ans(${i})">${esc(dsp(o))}</button>`).join('');
+else if(qz.r==null)h+=g?`<div class="row"><button class="pri" onclick="qz.r='';qz.sg=1;draw()">答えを見て自己採点</button></div>`:`<input id="ti" style="width:100%" placeholder="答えを入力" enterkeyhint="done" onkeydown="if(event.key=='Enter'&&!event.isComposing&&event.keyCode!==229)ansT()"><div class="row"><button class="pri" onclick="ansT()">答える</button><button onclick="qz.r='';rec(false)">わからない</button></div>`;
+if(qz.r!=null){const A=`答え: <b>${esc(dsp(q.a))}</b> ${bd(q.s)}${q.n?`<br><span class="mt">${esc(q.n)}</span>`:''}`;
+if(qz.ok==null)h+=`<div class="fb">${A}</div><div class="row"><button onclick="rec(false)">❌ 間違えた</button><button class="pri" onclick="rec(true)">⭕ 合っていた</button></div>`;
+else h+=`<div class="fb">${qz.ok?'⭕ 正解':'❌ 不正解'}${t&&!g&&qz.r?`<br>あなたの答え: ${esc(qz.r)}`:''}<br>${A}</div><div class="row">${!qz.ok&&t&&!g&&qz.r?`<button onclick="fix()">自分は合っていた(正解にする)</button>`:''}<button class="pri" onclick="qz.i++;if(qz.i<qz.list.length)nq();draw()">次へ</button></div>`}
+return h}
+function sq(m){const p=pool();if(!p.length)return;qz={mode:m,list:sh(p).slice(0,10),i:0,sc:0,wr:[]};nq();draw()}
+function rec(ok){if(qz.ok!=null)return;const q=qz.list[qz.i];qz.ok=ok;if(ok){qz.sc++;st[q.id]=1}else{qz.wr.push(q);st[q.id]=0}save();draw()}
+function fix(){const q=qz.list[qz.i];if(qz.ok!==false)return;qz.wr=qz.wr.filter(x=>x!==q);qz.sc++;st[q.id]=1;qz.ok=true;save();draw()}
+function ans(i){if(qz.r!=null)return;qz.r=qz.o[i];rec(qz.r==qz.list[qz.i].a)}function ansT(){if(qz.r!=null)return;const v=$('#ti').value;if(!v.trim())return;qz.r=v;rec(okA(v,qz.list[qz.i].a))}
+function vList(){const kw=(window._kw||'').toLowerCase();let h=fbar()+`<div class="bar"><input style="flex:1" placeholder="🔍 検索" value="${esc(window._kw||'')}" oninput="window._kw=this.value;clearTimeout(window._t);window._t=setTimeout(draw,300)"><button class="pri" onclick="addC()">＋追加</button></div>`;
+const l=pool().filter(x=>!kw||(x.q+x.a+x.n).toLowerCase().includes(kw));h+=`<p class="mt">${l.length}件(「未習得のみ」は未習得で絞込)</p>`;
+return h+l.map(x=>ed==x.id?`<div class="it"><select onchange="up('${x.id}','c',this.value)">${Object.entries(CATS).map(([k,v])=>`<option value="${k}" ${x.c==k?'selected':''}>${v}</option>`).join('')}</select><textarea rows="2" placeholder="問題" oninput="up('${x.id}','q',this.value,1)">${esc(x.q)}</textarea><input placeholder="答え(別解は / 区切り)" value="${esc(x.a)}" oninput="up('${x.id}','a',this.value,1)"><input placeholder="メモ" value="${esc(x.n)}" oninput="up('${x.id}','n',this.value,1)"><select onchange="up('${x.id}','s',this.value)"><option value="p" ${x.s=='p'?'selected':''}>出典: プリント</option><option value="s" ${x.s=='s'?'selected':''}>出典: 補完</option></select><div class="row"><button class="pri" onclick="ed=null;draw()">完了</button><button onclick="if(confirm('削除しますか?')){cards=cards.filter(y=>y.id!='${x.id}');ed=null;save();draw()}">削除</button></div></div>`
+:`<div class="it" onclick="ed='${x.id}';draw()"><span class="mt">${CATS[x.c]}</span> ${bd(x.s)} ${st[x.id]===1?'✅':''}<br>${esc(x.q)}<br><span class="a">${esc(dsp(x.a))}</span>${x.n?`<br><span class="mt">${esc(x.n)}</span>`:''}</div>`).join('')}
+function up(id,k,v,q){const c=cards.find(x=>x.id==id);c[k]=v;save();if(!q)draw()}
+function addC(){const id='n'+Date.now();cards.unshift({id,c:f.c||'r',q:'',a:'',s:'p',n:''});ed=id;save();draw()}
+function vProg(){const k=cards.filter(x=>st[x.id]===1).length;let h=`<div class="it"><b>全体 ${k} / ${cards.length}</b><div class="pg"><i style="width:${cards.length?k/cards.length*100:0}%"></i></div></div>`;
+for(const [c,n] of Object.entries(CATS)){const a=cards.filter(x=>x.c==c),b=a.filter(x=>st[x.id]===1).length;h+=`<div class="it">${n}: ${b} / ${a.length}<div class="pg"><i style="width:${a.length?b/a.length*100:0}%"></i></div></div>`}
+return h+`<div class="it"><b>バックアップ</b><textarea id="io" placeholder="書き出し/読み込み用JSON">${esc(io)}</textarea><div class="row"><button onclick="io=JSON.stringify({cards,st});draw()">書き出し</button><button onclick="imp()">読み込み</button></div><div class="row"><button onclick="if(confirm('進捗を消しますか?')){st={};save();draw()}">進捗リセット</button><button onclick="if(confirm('カードを初期状態に戻しますか?(編集内容は消えます)')){cards=D.map((d,i)=>({id:'d'+i,c:d[0],q:d[1],a:d[2],s:d[3],n:d[4]||''}));st={};save();draw()}">初期化</button></div></div>`}
+function imp(){try{const o=JSON.parse($('#io').value);if(!Array.isArray(o.cards))throw 0;cards=o.cards;st=o.st||{};save();io='';alert('読み込みました');draw()}catch(e){alert('JSONの形式が正しくありません')}}
+rb();
+</script></body></html>
